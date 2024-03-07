@@ -30,10 +30,10 @@
 #include "scalfmm/meta/traits.hpp"
 #include "scalfmm/meta/utils.hpp"
 #include "scalfmm/options/options.hpp"
+#include "scalfmm/utils/io_helpers.hpp"
 #include "scalfmm/utils/low_rank.hpp"
 #include "scalfmm/utils/math.hpp"
 #include "scalfmm/utils/tensor.hpp"
-#include "scalfmm/utils/io_helpers.hpp"
 
 using namespace scalfmm::io;
 
@@ -125,7 +125,7 @@ namespace scalfmm::interpolation
             /// @brief return the number of points in de dimension grid
             [[nodiscard]] inline auto nnodes() const noexcept { return m_nnodes; }
             /// @brief get the cell extension
-            [[nodiscard]] inline auto cell_width_extension() const noexcept -> value_type 
+            [[nodiscard]] inline auto cell_width_extension() const noexcept -> value_type
             {
                 return m_cell_width_extension;
             }
@@ -169,7 +169,7 @@ namespace scalfmm::interpolation
                 return this->derived_cast().derivative_impl(x, n);
             }
 
-            [[nodiscard]] inline auto grid_permutations() const -> grid_permutations_type  const&
+            [[nodiscard]] inline auto grid_permutations() const -> grid_permutations_type const&
             {
                 return m_grid_permutations;
             }
@@ -539,14 +539,14 @@ namespace scalfmm::interpolation
                 return m_interactions_matrices;
             }
 
-            [[nodiscard]] inline auto interactions_matrices() const noexcept
-              -> std::vector<interaction_matrix_type> const&
+            [[nodiscard]] inline auto
+            interactions_matrices() const noexcept -> std::vector<interaction_matrix_type> const&
             {
                 return m_interactions_matrices;
             }
 
-            [[nodiscard]] inline auto cinteractions_matrices() const noexcept
-              -> std::vector<interaction_matrix_type> const&
+            [[nodiscard]] inline auto
+            cinteractions_matrices() const noexcept -> std::vector<interaction_matrix_type> const&
             {
                 return m_interactions_matrices;
             }
@@ -1029,9 +1029,9 @@ namespace scalfmm::interpolation
                                     }
 
                                 }   // end kn loop on the output of the matrix kernel
-                            }       // end if
-                        }           // end loop number of cells in the symmetry
-                    }               // end km loop on the input of the matrix kernel
+                            }   // end if
+                        }   // end loop number of cells in the symmetry
+                    }   // end km loop on the input of the matrix kernel
 
                 }   // end constexpr
                 else if constexpr(std::is_same_v<settings, options::low_rank_> ||
@@ -1087,8 +1087,8 @@ namespace scalfmm::interpolation
             }
 
           private:
-            inline auto generate_interactions_matrices(size_type order, value_type width, std::size_t tree_height)
-              -> void
+            inline auto generate_interactions_matrices(size_type order, value_type width,
+                                                       std::size_t tree_height) -> void
             {
                 std::size_t number_of_level{1};
                 std::size_t number_of_interactions{0};

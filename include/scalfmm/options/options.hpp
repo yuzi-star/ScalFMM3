@@ -111,12 +111,19 @@ namespace scalfmm::options
         // };
     };
 
+    struct modified_uniform_ : setting<modified_uniform_>
+    {
+        using type = modified_uniform_;
+        static constexpr auto value() noexcept -> std::string_view { return "modified_uniform_"; };
+    };
+
 
     static constexpr auto uniform_dense = uniform_<dense_>{};
     static constexpr auto uniform_fft = uniform_<fft_>{};
     static constexpr auto uniform_low_rank = uniform_<low_rank_>{};
     static constexpr auto chebyshev_dense = chebyshev_<dense_>{};
     static constexpr auto chebyshev_low_rank = chebyshev_<low_rank_>{};
+    static constexpr auto modified_uniform = modified_uniform_{};
     static constexpr auto dense = dense_{};
     static constexpr auto fft = fft_{};
     static constexpr auto low_rank = low_rank_{};
